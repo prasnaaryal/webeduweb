@@ -4,32 +4,50 @@
     <meta charset="ISO-8859-1">
     <title>Student Management System</title>
     <link rel="stylesheet"
+
           href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
           crossorigin="anonymous">
+    <link th:href="@{~/css/nav.css}" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+
 </head>
 <body>
-<nav class="navbar navbar-expand-md " style="background-color: #FCA4A6;">
-    <!-- Brand -->
-    <a class="navbar-brand" style="color: #ffffff;" href="">Coffee</a>
 
-    <!-- Toggler/collapsibe Button -->
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-        <span class="navbar-toggler-icon"></span>
-    </button>
 
-    <!-- Navbar links -->
-    <div class="collapse navbar-collapse" id="collapsibleNavbar">
-        <ul class="navbar-nav">
-            <li class="nav-item">
-                <a class="nav-link" style="color: #ffffff;" th:href="@{/students}">Details</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" style="color: #ffffff;" th:href="@{/menus}">Menu</a>
-            </li>
-        </ul>
+<div class="menu-btn">
+    <i class="fas fa-bars"></i>
+</div>
+<div class="side-bar">
+    <div class="close-btn">
+        <i class="fas fa-times"></i>
     </div>
-</nav>
+    <div class="menu">
+        <div class="item"><a th:href = "@{/students/new}"><i class="fas fa-desktop"></i>Dashboard </a></div>
+        <div class="item">
+            <a class="sub-btn" th:href="@{/students}"><i class="fas fa-user"></i>Details<i class="fas fa-angle-right dropdown"></i> </a>
+            <div class="sub-menu">
+                <a th:href="@{/students/new}" class="sub-item">Add Student</a>
+                <a th:href="@{/students}" class="sub-item">Edit Student</a>
+
+            </div>
+        </div>
+
+        <div class="item">
+            <a class="sub-btn" th:href="@{/departments}"><i class="fas fa-th"></i>Department<i class="fas fa-angle-right dropdown"></i></a>
+            <div class="sub-menu">
+                <a th:href="@{/departments/new}" class="sub-item">Add Department</a>
+                <a th:href="@{/departments/{id}}" class="sub-item">Edit Department</a>
+
+            </div>
+        </div>
+        <div class="item"><a th:href="@{/logout}"><i class="fas fa-arrow-right-from-bracket"></i>logout</a></div>
+    </div>
+</div>
+
 
 <div class ="container">
     <div class = "row">
@@ -40,7 +58,7 @@
     text-decoration: none;
     font-size: 1.9rem;
     font-family:Poppins sans-serif;
-    font-weight: 500;"> Customer Records</h2>
+    font-weight: 500;"> Student Records</h2>
     </div>
 
 
@@ -50,21 +68,24 @@
             <th>  First Name</th>
             <th>  Last Name</th>
             <th> Email </th>
+            <th> Address </th>
+            <th> Department </th>
             <th> Actions </th>
         </tr>
         </thead>
-
         <tbody>
         <tr th:each = "student: ${students}">
             <td th:text = "${student.firstName}"></td>
             <td th:text = "${student.lastName}"></td>
             <td th:text = "${student.email}"></td>
+            <td th:text = "${student.address}"></td>
+            <td th:text = "${student.department}"></td>
             <td>
                 <a th:href = "@{/students/edit/{id}(id=${student.id})}"
-                   class = "btn btn-primary">Update</a>
+                   class = "btn btn-primary"><i class="fa-solid fa-pen"></i></a>
 
                 <a th:href = "@{/students/{id}(id=${student.id})}"
-                   class = "btn btn-danger">Delete</a>
+                   class = "btn btn-danger"><i class="fa-solid fa-trash"></i></a>
 
             </td>
         </tr>
@@ -74,10 +95,29 @@
 
     <div class = "row">
         <div class = "col-lg-3">
-            <a th:href = "@{/students/new}" class = "btn btn-primary btn-sm mb-3" style="background-color: palevioletred"> Add Customers</a>
+            <a th:href = "@{/students/new}" class = "btn btn-primary btn-sm mb-3" style="background-color: palevioletred"> Add Students</a>
         </div>
     </div>
 
 </div>
+
+<!-- jquery for menubar for closing and expanding -->
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('.sub-btn').click(function (){
+            $(this).next('.sub-menu').slideToggle();
+            $(this).find('.dropdown').toggleClass('rotate');
+        });
+        $('.menu-btn').click(function(){
+            $('.side-bar').addClass('active');
+            $('.menu-btn').css("visibility","hidden")
+        });
+
+        $('.close-btn').click(function(){
+            $('.side-bar').removeClass('active');
+            $('.menu-btn').css("visibility","visible")
+        });
+    });
+</script>
 </body>
 </html>

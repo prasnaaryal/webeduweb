@@ -9,16 +9,13 @@ import java.util.List;
 public interface UserService {
     UserPojo save(UserPojo userPojo) throws IOException;
 
-    void save(User user);
+//    void save(User user);
     void login(String username, String password);
-    User findByUsername(String username);
-    User findByEmail(String email);
+//    User findByUsername(String username);
+//    User findByEmail(String email);
     User findById(long id);
-
     User fetchById(Integer id);
-
     List<User> fetchAll();
-
     void deleteById(Integer id);
 }
 

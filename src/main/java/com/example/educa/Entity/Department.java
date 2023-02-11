@@ -5,8 +5,8 @@ import jakarta.persistence.*;
 
 
 @Entity
-@Table(name = "menu")
-public class Menu {
+@Table(name = "department")
+public class Department {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -15,21 +15,21 @@ public class Menu {
     @Column(name = "name", nullable = false)
     private String Name;
 
-    @Column(name = "price")
-    private String Price;
+    
 
-    @Column(name = "stock")
-    private String Stock;
+    @Column(name = "credit", nullable = false)
+    private String Credit;
 
-    public Menu() {
+
+   
+    public Department() {
 
     }
 
-    public Menu(String Name, String Price, String Stock) {
+    public Department(String Name, String Credit) {
         super();
         this.Name = Name;
-        this.Price = Price;
-        this.Stock = Stock;
+        this.Credit=Credit;
     }
     public Long getId() {
         return id;
@@ -43,16 +43,13 @@ public class Menu {
     public void setName(String Name) {
         this.Name = Name;
     }
-    public String getPrice() {
-        return Price;
+
+    public String getCredit() {
+        return Credit;
     }
-    public void setPrice(String Price) {
-        this.Price = Price;
+
+    public void setCredit(String Credit) {
+        this.Credit = Credit;
     }
-    public String getStock() {
-        return Stock;
-    }
-    public void setStock(String Stock) {
-        this.Stock = Stock;
-    }
+
 }

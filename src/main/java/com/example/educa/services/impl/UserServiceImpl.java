@@ -42,43 +42,33 @@ public class UserServiceImpl implements UserService {
 //            Files.write(fileNameAndPath, userPojo.getImage().getBytes());
 
 //            user.setImage(userPojo.getImage().getOriginalFilename());
-
-
         userRepo.save(user);
         return new UserPojo(user);
     }
-
     public List<User> fetchAll() {
         return userRepo.findAll();
     }
-
     public User fetchById(Integer id) {
         return userRepo.findById(id).orElseThrow(()->new RuntimeException("Not Found"));
     }
-
     public void deleteById(Integer id){
         userRepo.deleteById(id);
     }
-
-    @Override
-    public void save(User user) {
-
-    }
-
+//    @Override
+//    public void save(User user) {
+//    }
     @Override
     public void login(String username, String password) {
-
     }
-
-    @Override
-    public User findByUsername(String username) {
-        return null;
-    }
-
-    @Override
-    public User findByEmail(String email) {
-        return null;
-    }
+//    @Override
+//    public User findByUsername(String username) {
+//        return null;
+//    }
+//
+//    @Override
+//    public User findByEmail(String email) {
+//        return null;
+//    }
 
     @Override
     public User findById(long id) {

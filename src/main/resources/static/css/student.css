@@ -1,6 +1,7 @@
 body{
-    background-color: #f6f6ea;
-    font-family: "Poppins", sans-serif;
+    background-color: #f8ebcb;
+    font-family: 'Poppins', sans-serif;
+
 
 
 
@@ -8,7 +9,7 @@ body{
 }
 
 .box-footer .btn-primary{
-    background-color:palevioletred;
+    background-color: #1a1414;
     display: inline-block;
     width: 100%;
     height: 43px;
@@ -34,4 +35,7 @@ body{
     border-radius: 3.3rem;
     box-shadow: 0 60px 40px -30px rgb(0 0 0 / 27%);
 }
+
+
+
 

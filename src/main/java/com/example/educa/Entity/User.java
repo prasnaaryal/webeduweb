@@ -28,7 +28,7 @@ public class User implements UserDetails {
     @Column(name = "fullname", nullable = false)
     private String fullName;
 
-    @Column(nullable = false)
+    @Column(name="email", nullable = false)
     private String email;
 
 

@@ -14,6 +14,7 @@ import org.springframework.web.multipart.MultipartFile;
 @NoArgsConstructor
 @AllArgsConstructor
 
+//for validation and data
 public class UserPojo {
 
     private Integer id;

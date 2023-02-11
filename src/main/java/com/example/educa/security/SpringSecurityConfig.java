@@ -35,15 +35,15 @@ public class SpringSecurityConfig {
     protected SecurityFilterChain filterChain(HttpSecurity httpSecurity) throws Exception {
         httpSecurity.csrf().disable()
                 .authorizeHttpRequests()
-                .requestMatchers("/login")
+                .requestMatchers("/index")
                 .permitAll()
-                .requestMatchers("/css/**").permitAll()
+                .requestMatchers("/css/**","/img/**").permitAll()
                 .anyRequest()
                 .authenticated()
                 .and()
                 .formLogin()
                 .loginPage("/login")
-                .defaultSuccessUrl("/user/list",true)
+                .defaultSuccessUrl("/students",true)
                 .usernameParameter("email")
                 .permitAll()
                 .and()
@@ -56,9 +56,9 @@ public class SpringSecurityConfig {
 
     };
 
-    @Bean
-    public WebSecurityCustomizer webSecurityCustomizer(){
-        return (web) ->web.ignoring().anyRequest();
-    }
+//    @Bean
+//    public WebSecurityCustomizer webSecurityCustomizer(){
+//        return (web) ->web.ignoring().requestMatchers("/css/**", "/img/**","/js/**");
+//    }
 }
 

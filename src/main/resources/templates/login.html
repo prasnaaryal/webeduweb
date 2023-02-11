@@ -12,7 +12,7 @@
     <!--    <link rel="stylesheet" href="../static/css/login.css">-->
     <!--    <script src="../static/js/login.js"></script>-->
     <link th:href="@{~/css/login.css}" rel="stylesheet">
-    <script th:src="@{~/js/script.js}"></script>
+    <script th:src="@{~/js/login.js}"></script>
 </head>
 <body>
 
@@ -22,8 +22,8 @@
             <div class="forms-wrap">
                 <form th:action="@{/login}" method="post" autocomplete="off" class="sign-in-form">
                     <div class="logo">
-                        <!--                        <img th:src="@{~./img/logo2.png}" alt="Guess" />-->
-                        <h4>Coffee</h4>
+                        <img th:src="@{~/img/logo.svg}" alt="Eduwebogo">
+                        <h4>EduWeb</h4>
                     </div>
 
                     <div class="heading">
@@ -42,7 +42,7 @@
                                     required
                                     name="email"
                             />
-                            <label>Name</label>
+                            <label>Email</label>
                         </div>
 
                         <div class="input-wrap">

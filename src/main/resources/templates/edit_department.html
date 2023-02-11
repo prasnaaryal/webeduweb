@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Student Management System</title>
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous">
+
+    <link th:href="@{~/css/student.css}" rel="stylesheet">
+    <link th:href="@{~/css/nav.css}" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+</head>
+<body>
+<div class="menu-btn">
+    <i class="fas fa-bars"></i>
+</div>
+<div class="side-bar">
+    <div class="close-btn">
+        <i class="fas fa-times"></i>
+    </div>
+    <div class="menu">
+        <div class="item"><a href="#"><i class="fas fa-desktop"></i>Dashboard </a></div>
+        <div class="item"><a th:href="@{/students}"><i class="fas fa-user"></i>Details </a></div>
+        <div class="item"><a th:href="@{/departments}"><i class="fas fa-th"></i>Department</a></div>
+        <div class="item"><a th:href="@{/logout}"><i class="fas fa-arrow-right-from-bracket"></i>logout</a></div>
+    </div>
+</div>
+
+<br>
+<br>
+<div class = "container">
+    <div class = "row">
+        <div class ="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
+            <h1 class = "text-center" style="padding-top: 50px; font-size: 2.1rem;
+    font-weight: 600;
+    color: #151111;"> Update Department </h1>
+            <div class = "card-body">
+                <form th:action="@{/departments/{id} (id=${department.id})}" th:object = "${department}" method="POST">
+                    <div class ="form-group">
+                        <label>   Name </label>
+                        <input
+                                type = "text"
+                                name = "Name"
+                                th:field = "*{Name}"
+                                class = "form-control"
+                                autocomplete="off"
+                                required
+                                placeholder="Enter Department Name"
+                        />
+                    </div>
+
+                    <div class ="form-group">
+                        <label>  Last Name </label>
+                        <input
+                                type = "text"
+                                name = "Price"
+                                th:field = "*{Credit}"
+                                class = "form-control"
+                                autocomplete="off"
+                                required
+                                placeholder="Enter Department's Credit"
+                        />
+                    </div>
+
+<!--                    <div class ="form-group">-->
+<!--                        <label> Email </label>-->
+<!--                        <input-->
+<!--                                type = "text"-->
+<!--                                name = "Stock"-->
+<!--                                th:field = "*{Stock}"-->
+<!--                                class = "form-control"-->
+<!--                                placeholder="Enter Student Email"-->
+<!--                        />-->
+<!--                    </div>-->
+
+                    <div class = "box-footer">
+                        <button type="submit" class = "btn btn-primary">
+                            Submit
+                        </button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('.menu-btn').click(function(){
+            $('.side-bar').addClass('active');
+            $('.menu-btn').css("visibility","hidden")
+        });
+
+        $('.close-btn').click(function(){
+            $('.side-bar').removeClass('active');
+            $('.menu-btn').css("visibility","visible")
+        });
+    });
+</script>
+</body>
+</html>

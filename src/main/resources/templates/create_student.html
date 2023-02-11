@@ -9,75 +9,112 @@
           crossorigin="anonymous">
 
     <link th:href="@{~/css/student.css}" rel="stylesheet">
+<!--    for nav bar-->
+    <link th:href="@{~/css/nav.css}" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 </head>
 <body>
-<nav class="navbar navbar-expand-md" style="background-color: #FCA4A6;">
-    <!-- Brand -->
-    <a class="navbar-brand" style="color: white;" href="#">Coffee</a>
 
-    <!-- Toggler/collapsibe Button -->
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <!-- Navbar links -->
-    <div class="collapse navbar-collapse" id="collapsibleNavbar">
-        <ul class="navbar-nav">
-            <li class="nav-item">
-                <a class="nav-link"style="color: white;" th:href="@{/students}">Details</a>
-            </li>
-        </ul>
+<div class="menu-btn">
+    <i class="fas fa-bars"></i>
+</div>
+<div class="side-bar">
+    <div class="close-btn">
+        <i class="fas fa-times"></i>
     </div>
-</nav>
+    <div class="menu">
+        <div class="item"><a href="#"><i class="fas fa-desktop"></i>Dashboard </a></div>
+        <div class="item"><a th:href="@{/students}"><i class="fas fa-user"></i>Details </a></div>
+        <div class="item"><a th:href="@{/departments}"><i class="fas fa-th"></i>Department</a></div>
+        <div class="item"><a th:href="@{/logout}"><i class="fas fa-arrow-right-from-bracket"></i>logout</a></div>
+    </div>
+</div>
+
 <br>
 <br>
 <div class = "container">
     <div class = "row">
 <!--        box form with heading css-->
         <div class ="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
-            <h2 class = "text-center" style="padding-top: 50px; font-size: 2.1rem;
+            <h2 class = "text-center" style="padding-top: 40px; font-size: 1.6rem;
     font-weight: 600;
-    color: #151111;" >New customer?</h2>
-            <h6 style="color: #bababa;
-    font-weight: 400;
-    font-size: 0.75rem;
-    justify-items: center;">Add them on the list</h6>
-            <div class = "card-body">
+    font-family: 'Poppins', sans-serif;
+    color: #151111;" >Add Students
+                </h2>
+<!--            <h6 class="text-center" style="color: #151111;-->
+<!--    font-weight: 400;-->
+<!--    font-size: 0.75rem;-->
+<!--    justify-items: center;">Students-->
+<!--                /Add Students</h6>-->
+            <div class = "card-body" style="padding-top: 2px">
                 <form th:action="@{/students}" th:object = "${student}" method="POST">
-                    <div class ="form-group">
-                        <label>  First Name </label>
+                    <div class ="form-group" style="margin-bottom: 0rem">
+                        <label style="font-size: small">  First Name </label>
                         <input
                                 type = "text"
                                 name = "firstName"
                                 th:field = "*{firstName}"
                                 class = "form-control"
+                                autocomplete="off"
+                                required
                                 placeholder="Enter First Name"
                         />
                     </div>
 
-                    <div class ="form-group">
-                        <label>  Last Name </label>
+                    <div class ="form-group" style="margin-bottom: 0rem">
+                        <label style="font-size: small">  Last Name </label>
                         <input
                                 type = "text"
                                 name = "lastName"
                                 th:field = "*{lastName}"
                                 class = "form-control"
+                                autocomplete="off"
+                                required
                                 placeholder="Enter Last Name"
                         />
                     </div>
 
-                    <div class ="form-group">
-                        <label>  Email </label>
+                    <div class ="form-group" style="margin-bottom: 0rem">
+                        <label style="font-size: small">  Email </label>
                         <input
                                 type = "text"
                                 name = "email"
                                 th:field = "*{email}"
                                 class = "form-control"
+                                autocomplete="off"
+                                required
                                 placeholder="Enter  Email"
                         />
                     </div>
 
-                    <div class = "box-footer">
+                    <div class ="form-group" style="margin-bottom: 0rem">
+                        <label style="font-size: small">  Address </label>
+                        <input
+                                type = "text"
+                                name = "address"
+                                th:field = "*{address}"
+                                autocomplete="off"
+                                required
+                                class = "form-control"
+                                placeholder="Enter Adress"
+                        />
+                    </div>
+                    <div class ="form-group" style="margin-bottom: 0rem">
+                        <label style="font-size: small">Department </label>
+                        <input
+                                type = "text"
+                                name = "department"
+                                autocomplete="off"
+                                required
+                                th:field = "*{department}"
+                                class = "form-control"
+                                placeholder="Enter Department"
+                        />
+                    </div>
+
+                    <div class = "box-footer" style="padding-top: 8px">
                         <button type="submit"  class = "btn btn-primary">
                             Submit
                         </button>
@@ -88,5 +125,19 @@
         </div>
     </div>
 </div>
+<!-- jquery for menubar for closing and expanding -->
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('.menu-btn').click(function(){
+            $('.side-bar').addClass('active');
+            $('.menu-btn').css("visibility","hidden")
+        });
+
+        $('.close-btn').click(function(){
+            $('.side-bar').removeClass('active');
+            $('.menu-btn').css("visibility","visible")
+        });
+    });
+</script>
 </body>
 </html>
