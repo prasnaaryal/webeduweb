@@ -15,19 +15,52 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 </head>
 <body>
-<div class="menu-btn">
-    <i class="fas fa-bars"></i>
-</div>
-<div class="side-bar">
-    <div class="close-btn">
-        <i class="fas fa-times"></i>
+<div class="wrapper">
+    <div class="section">
+        <div class="top_navbar">
+            <div class="hamburger">
+                <a href="#">
+                    <i class="fas fa-bars"></i>
+                </a>
+            </div>
+        </div>
+
     </div>
-    <div class="menu">
-        <div class="item"><a href="#"><i class="fas fa-desktop"></i>Dashboard </a></div>
-        <div class="item"><a th:href="@{/students}"><i class="fas fa-user"></i>Details </a></div>
-        <div class="item"><a th:href="@{/departments}"><i class="fas fa-th"></i>Department</a></div>
-        <div class="item"><a th:href="@{/logout}"><i class="fas fa-arrow-right-from-bracket"></i>logout</a></div>
+    <div class="sidebar">
+        <div class="profile">
+            <img th:src="@{~/img/logo.svg}" width="162" height="50" alt="Eduwebogo">
+
+        </div>
+        <ul>
+
+            <li>
+                <a th:href="@{/dashboard}">
+                    <span class="icon"><i class="fas fa-desktop"></i></span>
+                    <span class="item">My Dashboard</span>
+                </a>
+            </li>
+            <li>
+                <a th:href="@{/students}">
+                    <span class="icon"><i class="fas fa-user"></i></span>
+                    <span class="item">Details</span>
+                </a>
+            </li>
+            <li>
+                <a th:href="@{/departments}">
+                    <span class="icon"><i class="fas fa-th"></i></span>
+                    <span class="item">Department</span>
+                </a>
+            </li>
+            <li>
+                <a th:href="@{/logout}">
+                    <span class="icon"><i class="fas fa-arrow-right-from-bracket"></i></span>
+                    <span class="item">Logout</span>
+                </a>
+            </li>
+
+        </ul>
     </div>
+
 </div>
 
 
@@ -79,23 +112,17 @@
 
     <div class = "row">
         <div class = "col-lg-3">
-            <a th:href = "@{/departments/new}" class = "btn btn-primary btn-sm mb-3" style="background-color: palevioletred"> Add Department</a>
+            <a th:href = "@{/departments/new}" class = "btn btn-primary btn-sm mb-3" style="background-color: palevioletred;    margin-left: 60rem;
+"> Add Department</a>
         </div>
     </div>
 
 </div>
-<script type="text/javascript">
-    $(document).ready(function(){
-        $('.menu-btn').click(function(){
-            $('.side-bar').addClass('active');
-            $('.menu-btn').css("visibility","hidden")
-        });
-
-        $('.close-btn').click(function(){
-            $('.side-bar').removeClass('active');
-            $('.menu-btn').css("visibility","visible")
-        });
-    });
+<script>
+    var hamburger = document.querySelector(".hamburger");
+    hamburger.addEventListener("click", function(){
+        document.querySelector("body").classList.toggle("active");
+    })
 </script>
 </body>
 </html>

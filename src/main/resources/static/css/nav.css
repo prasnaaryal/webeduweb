@@ -1,83 +1,176 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
 
-
-
-.side-bar{
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(15px);
-    width: 290px;
-    height: 100vh;
-    position: fixed;
-    top:0;
-    left:-100%;
-    overflow-y: auto;
-    transition: 0.6s ease;
-    transition-property: left;
-
-}
-
-.side-bar.active{
-    left:0;
-}
-
-.side-bar .menu{
-    width: 100%;
-    margin-top: 80px;
-
-
-}
-.side-bar .menu .item{
-    position: relative;
-    cursor: pointer;
-}
-
-.side-bar .menu .item a{
-    color: #231b1b;
-    font-size: 16px;
+*{
+    list-style: none;
     text-decoration: none;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+}
+
+body{
+    background: #a8a8a8;
+}
+
+.wrapper .sidebar{
+    background: rgb(183, 179, 179);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 225px;
+    height: 100%;
+    padding: 20px 0;
+    transition: all 0.5s ease;
+}
+
+.wrapper .sidebar .profile{
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.wrapper .sidebar .profile img{
     display: block;
-    padding: 5px 30px;
-    line-height: 60px;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin: 0 auto;
 }
 
-.side-bar .menu .item a:hover{
-    background: #8621F8;
-    transition: 0.3s ease;
+.wrapper .sidebar .profile h3{
+    color: #ffffff;
+    margin: 10px 0 5px;
 }
 
-.side-bar .menu .item i{
-    margin-right: 15px;
+.wrapper .sidebar .profile p{
+    color: rgb(206, 240, 253);
+    font-size: 14px;
 }
-.side-bar .menu .item a .dropdown{
-    position: absolute;
-    right: 0;
-    margin: 20px;
-    transition: 0.3s ease;
+
+.wrapper .sidebar ul li a{
+    display: block;
+    padding: 13px 30px;
+    border-bottom: 1px solid #f8ebcb;
+    color: rgb(241, 237, 237);
+    font-size: 16px;
+    position: relative;
 }
-.side-bar .menu .item .sub-menu{
-    background: rgba(238, 238, 238, 0.1);
-    display: none;
+
+.wrapper .sidebar ul li a .icon{
+    color: #dee4ec;
+    width: 30px;
+    display: inline-block;
 }
-.side-bar .menu .item .sub-menu a{
-    padding-left: 80px;
+
+
+
+.wrapper .sidebar ul li a:hover,
+.wrapper .sidebar ul li a.active{
+    color: #e4f0f6;
+
+    background:white;
+    border-right: 2px solid rgb(5, 68, 104);
+}
+
+.wrapper .sidebar ul li a:hover .icon,
+.wrapper .sidebar ul li a.active .icon{
+    color: #0c7db1;
+}
+
+.wrapper .sidebar ul li a:hover:before,
+.wrapper .sidebar ul li a.active:before{
+    display: block;
+}
+
+.wrapper .section{
+    width: calc(100% - 225px);
+    margin-left: 225px;
+    transition: all 0.5s ease;
+}
+
+.wrapper .section .top_navbar{
+    background: rgb(183, 179, 179);
+    height: 50px;
+    display: flex;
+    align-items: center;
+    padding: 0 30px;
 
 }
 
-.rotate{
-    transform: rotate(90deg);
+.container {
+    max-width: 95%;
 }
-.close-btn{
-    position: absolute;
-    color: #211a1a;
-    font-size: 20px;
-    right: 0;
-    margin: 25px;
-    cursor: pointer;
+.wrapper .section .top_navbar .hamburger a{
+    font-size: 28px;
+    color: #f4fbff;
 }
 
-.menu-btn{
-    position: absolute;
-    color: #1c1616;
-    font-size: 20px;
-    margin: 25px;
-    cursor: pointer;
+.wrapper .section .top_navbar .hamburger a:hover{
+    color: #a2ecff;
+}
+
+
+
+body.active .wrapper .sidebar{
+    left: -225px;
+}
+
+body.active .wrapper .section{
+    margin-left: 0;
+    width: 100%;
+}
+.table-dark{
+    border-collapse: collapse;
+    /*     margin: 25px 0; */
+    font-size: 15px;
+    min-width: 100%;
+    overflow: hidden;
+    border-radius: 5px 5px 0 0;
+}
+.table-dark tr{
+    color: #fff;
+    background: #87bba2	;
+    text-align: left;
+    font-weight: bold;
+
+}
+.table table-striped table-bordered{
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 15px;
+    min-width: 100%;
+    overflow: hidden;
+    border-radius: 25px;
+    border: 2px solid #73AD21;
+    padding: 20px;
+
+
+
+}
+.welcome{
+    display:flex;
+    justify-content:center;
+    item-align:center;
+    height:100px;
+    background-color:#c9e4ca;
+    color:white;
+    border-radius:10px;
+    margin-bottom:2%;
+    text-align:center;
+    padding-top:3%;
+    margin-top: 2%;
+
+
+}
+
+
+
+@media  (max-width:375px) {
+    .wrapper .sidebar{
+        width: 200px;
+
+    }
+    .container{
+        width:90%;
+    }
 }

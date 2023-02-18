@@ -1,10 +1,15 @@
 package com.example.educa.controller;
+import com.example.educa.Entity.Student;
 import com.example.educa.Entity.User;
 import com.example.educa.pojo.UserPojo;
 
+import com.example.educa.services.DepartmentService;
+import com.example.educa.services.StudentService;
 import com.example.educa.services.UserService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -26,6 +31,8 @@ import java.util.Map;
 public class UserController {
 
     private final UserService userService;
+    private final StudentService studentService;
+    private final DepartmentService departmentService;
 //    public static String UPLOAD_DIRECTORY = System.getProperty("user.dir") + "/canteen_mgmt";
 
     @GetMapping
@@ -70,9 +77,20 @@ public class UserController {
         return "register";
     }
 
-    @GetMapping("/list")
-    public String getUSerList(Model model) {
-//        List<User> users = userService.fetchAll();
+    @GetMapping("/dashboard")
+    public String listStudents(Model model) {
+        model.addAttribute("depList",departmentService.getAllDepartment());
+        model.addAttribute("studentList", studentService.getAllStudents());
+        return "userdashboard";
+    }
+
+
+
+
+//
+//    @GetMapping("/list")
+//    public String getUSerList(Model model) {
+////        List<User> users = userService.fetchAll();
 
 
 //        model.addAttribute("userList", users.stream().map(user ->
@@ -88,8 +106,8 @@ public class UserController {
 
 //        model.addAttribute("UPLOAD_DIRECTORY", "/" + UPLOAD_DIRECTORY);
 
-        return "user_list";
-    }
+//        return "user_list";
+//    }
 
     @GetMapping("/{id}")
     public String deleteUser(@PathVariable("id") Integer id, RedirectAttributes redirectAttributes) {
@@ -129,6 +147,12 @@ public class UserController {
 //        return base64;
 //    }
 
+//    public String listStudents(Model model) {
+//        model.addAttribute("students", studentService.getAllStudents());
+//        return "students";
+//    }
+//    }
 
+//}
 }
 

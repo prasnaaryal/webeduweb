@@ -14,41 +14,59 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 
+
 </head>
 <body>
 
 
-<div class="menu-btn">
-    <i class="fas fa-bars"></i>
-</div>
-<div class="side-bar">
-    <div class="close-btn">
-        <i class="fas fa-times"></i>
-    </div>
-    <div class="menu">
-        <div class="item"><a th:href = "@{/students/new}"><i class="fas fa-desktop"></i>Dashboard </a></div>
-        <div class="item">
-            <a class="sub-btn" th:href="@{/students}"><i class="fas fa-user"></i>Details<i class="fas fa-angle-right dropdown"></i> </a>
-            <div class="sub-menu">
-                <a th:href="@{/students/new}" class="sub-item">Add Student</a>
-                <a th:href="@{/students}" class="sub-item">Edit Student</a>
 
+<div class="wrapper">
+    <div class="section">
+        <div class="top_navbar">
+            <div class="hamburger">
+                <a href="#">
+                    <i class="fas fa-bars"></i>
+                </a>
             </div>
         </div>
 
-        <div class="item">
-            <a class="sub-btn" th:href="@{/departments}"><i class="fas fa-th"></i>Department<i class="fas fa-angle-right dropdown"></i></a>
-            <div class="sub-menu">
-                <a th:href="@{/departments/new}" class="sub-item">Add Department</a>
-                <a th:href="@{/departments/{id}}" class="sub-item">Edit Department</a>
-
-            </div>
-        </div>
-        <div class="item"><a th:href="@{/logout}"><i class="fas fa-arrow-right-from-bracket"></i>logout</a></div>
     </div>
+    <div class="sidebar">
+        <div class="profile">
+            <img th:src="@{~/img/logo.svg}" width="162" height="50" alt="Eduwebogo">
+
+        </div>
+        <ul>
+
+            <li>
+                <a th:href="@{/dashboard}">
+                    <span class="icon"><i class="fas fa-desktop"></i></span>
+                    <span class="item">My Dashboard</span>
+                </a>
+            </li>
+            <li>
+                <a th:href="@{/students}">
+                    <span class="icon"><i class="fas fa-user"></i></span>
+                    <span class="item">Details</span>
+                </a>
+            </li>
+            <li>
+                <a th:href="@{/departments}">
+                    <span class="icon"><i class="fas fa-th"></i></span>
+                    <span class="item">Department</span>
+                </a>
+            </li>
+            <li>
+                <a th:href="@{/logout}">
+                    <span class="icon"><i class="fas fa-arrow-right-from-bracket"></i></span>
+                    <span class="item">Logout</span>
+                </a>
+            </li>
+
+        </ul>
+    </div>
+
 </div>
-
-
 <div class ="container">
     <div class = "row">
         <h2 style=" color: #151111;
@@ -94,30 +112,36 @@
     </table>
 
     <div class = "row">
-        <div class = "col-lg-3">
-            <a th:href = "@{/students/new}" class = "btn btn-primary btn-sm mb-3" style="background-color: palevioletred"> Add Students</a>
-        </div>
+
+            <a th:href = "@{/students/new}" class = "btn btn-primary btn-sm mb-3" style="background-color: palevioletred;display: flex;justify-content: center;align-content: center;"> Add Students</a>
+
     </div>
 
 </div>
 
-<!-- jquery for menubar for closing and expanding -->
-<script type="text/javascript">
-    $(document).ready(function(){
-        $('.sub-btn').click(function (){
-            $(this).next('.sub-menu').slideToggle();
-            $(this).find('.dropdown').toggleClass('rotate');
-        });
-        $('.menu-btn').click(function(){
-            $('.side-bar').addClass('active');
-            $('.menu-btn').css("visibility","hidden")
-        });
+<!--&lt;!&ndash; jquery for menubar for closing and expanding &ndash;&gt;-->
+<!--<script type="text/javascript">-->
+<!--    $(document).ready(function(){-->
+<!--        $('.sub-btn').click(function (){-->
+<!--            $(this).next('.sub-menu').slideToggle();-->
+<!--            $(this).find('.dropdown').toggleClass('rotate');-->
+<!--        });-->
+<!--        $('.menu-btn').click(function(){-->
+<!--            $('.side-bar').addClass('active');-->
+<!--            $('.menu-btn').css("visibility","hidden")-->
+<!--        });-->
 
-        $('.close-btn').click(function(){
-            $('.side-bar').removeClass('active');
-            $('.menu-btn').css("visibility","visible")
-        });
-    });
+<!--        $('.close-btn').click(function(){-->
+<!--            $('.side-bar').removeClass('active');-->
+<!--            $('.menu-btn').css("visibility","visible")-->
+<!--        });-->
+<!--    });-->
+<!--</script>-->
+<script>
+    var hamburger = document.querySelector(".hamburger");
+    hamburger.addEventListener("click", function(){
+        document.querySelector("body").classList.toggle("active");
+    })
 </script>
 </body>
 </html>

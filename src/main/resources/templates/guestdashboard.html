@@ -1,0 +1,337 @@
+<!--<!DOCTYPE html>-->
+<!--<html xmlns:th="http://www.thymeleaf.org">-->
+<!--<head>-->
+<!--    <meta charset="ISO-8859-1">-->
+<!--    <title>Student Management System</title>-->
+<!--    <link rel="stylesheet"-->
+
+<!--          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"-->
+
+<!--          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"-->
+<!--          crossorigin="anonymous">-->
+<!--    <link th:href="@{~/css/nav.css}" rel="stylesheet">-->
+
+<!--    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">-->
+<!--    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>-->
+
+<!--</head>-->
+<!--<body>-->
+
+
+<!--<div class="wrapper">-->
+<!--    <div class="section">-->
+<!--        <div class="top_navbar">-->
+<!--            <div class="hamburger">-->
+<!--                <a href="#">-->
+<!--                    <i class="fas fa-bars"></i>-->
+<!--                </a>-->
+<!--            </div>-->
+<!--        </div>-->
+
+<!--    </div>-->
+<!--    <div class="sidebar">-->
+<!--        <div class="profile">-->
+<!--            <img th:src="@{~/img/logo.svg}" width="162" height="50" alt="Eduwebogo">-->
+
+<!--        </div>-->
+<!--        <ul>-->
+
+<!--            <li>-->
+<!--                <a th:href="@{/dashboard}">-->
+<!--                    <span class="icon"><i class="fas fa-desktop"></i></span>-->
+<!--                    <span class="item">My Dashboard</span>-->
+<!--                </a>-->
+<!--            </li>-->
+
+<!--            <li>-->
+<!--                <a th:href="@{/logout}">-->
+<!--                    <span class="icon"><i class="fas fa-arrow-right-from-bracket"></i></span>-->
+<!--                    <span class="item">Logout</span>-->
+<!--                </a>-->
+<!--            </li>-->
+
+<!--        </ul>-->
+<!--    </div>-->
+
+
+<!--<div class ="container">-->
+<!--    <div class = "row">-->
+<!--        <h2 style=" color: #151111;-->
+<!--        padding-top: 60px;-->
+<!--        padding-bottom: 40px;-->
+
+<!--    text-decoration: none;-->
+<!--    font-size: 1.9rem;-->
+<!--    font-family:Poppins sans-serif;-->
+<!--    font-weight: 500;"> Student Records</h2>-->
+<!--    </div>-->
+
+
+<!--    <table class = "table table-striped table-bordered" style="padding-top: 60px">-->
+<!--        <thead class = "table-dark">-->
+<!--        <tr>-->
+<!--            <th>  First Name</th>-->
+<!--            <th>  Last Name</th>-->
+<!--            <th> Email </th>-->
+<!--            <th> Address </th>-->
+<!--            <th> Department </th>-->
+<!--            <th>credit</th>-->
+<!--        </tr>-->
+<!--        </thead>-->
+<!--        <tbody>-->
+<!--        <tr th:each = "student: ${studentList}">-->
+<!--            <td th:text = "${student.firstName}"></td>-->
+<!--            <td th:text = "${student.lastName}"></td>-->
+<!--            <td th:text = "${student.email}"></td>-->
+<!--            <td th:text = "${student.address}"></td>-->
+<!--&lt;!&ndash;                  <td th:text = "${t.department}"></td>&ndash;&gt;-->
+
+<!--        <tr th:each = "department: ${depList}">-->
+<!--            <td th:text = "${department.Name}"></td>-->
+<!--            <td th:text = "${department.Credit}"></td>-->
+<!--            &lt;!&ndash;            <td th:text = "${menu.Stock}"></td>&ndash;&gt;-->
+<!--            <td>-->
+
+
+
+<!--            &lt;!&ndash;      <td th:text = "${department.credit}"></td>&ndash;&gt;-->
+
+
+<!--            &lt;!&ndash;      <td>&ndash;&gt;-->
+<!--            &lt;!&ndash;        <a th:href = "@{/students/edit/{id}(id=${student.id})}"&ndash;&gt;-->
+<!--            &lt;!&ndash;           class = "btn btn-primary"><i class="fa-solid fa-pen"></i></a>&ndash;&gt;-->
+
+<!--            &lt;!&ndash;        <a th:href = "@{/students/{id}(id=${student.id})}"&ndash;&gt;-->
+<!--            &lt;!&ndash;           class = "btn btn-danger"><i class="fa-solid fa-trash"></i></a>&ndash;&gt;-->
+
+<!--            &lt;!&ndash;      </td>&ndash;&gt;-->
+<!--        </tr>-->
+<!--        </tbody>-->
+
+<!--    </table>-->
+
+<!--    &lt;!&ndash;  <div class = "row">&ndash;&gt;-->
+<!--    &lt;!&ndash;    <div class = "col-lg-3">&ndash;&gt;-->
+<!--    &lt;!&ndash;      <a th:href = "@{/students/new}" class = "btn btn-primary btn-sm mb-3" style="background-color: palevioletred"> Add Students</a>&ndash;&gt;-->
+<!--    &lt;!&ndash;    </div>&ndash;&gt;-->
+<!--    &lt;!&ndash;  </div>&ndash;&gt;-->
+
+<!--</div>-->
+
+<!--&lt;!&ndash; jquery for menubar for closing and expanding &ndash;&gt;-->
+<!--<script type="text/javascript">-->
+<!--    $(document).ready(function(){-->
+<!--        $('.sub-btn').click(function (){-->
+<!--            $(this).next('.sub-menu').slideToggle();-->
+<!--            $(this).find('.dropdown').toggleClass('rotate');-->
+<!--        });-->
+<!--        $('.menu-btn').click(function(){-->
+<!--            $('.side-bar').addClass('active');-->
+<!--            $('.menu-btn').css("visibility","hidden")-->
+<!--        });-->
+
+<!--        $('.close-btn').click(function(){-->
+<!--            $('.side-bar').removeClass('active');-->
+<!--            $('.menu-btn').css("visibility","visible")-->
+<!--        });-->
+<!--    });-->
+<!--</script>-->
+<!--</body>-->
+<!--</html>-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Attendance Dashboard | By Code Info</title>
+        <link th:href="@{~/css/guestnav.css}" rel="stylesheet">
+
+    <!-- Font Awesome Cdn Link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+</head>
+<body>
+<div class="container">
+    <nav>
+        <ul>
+            <li><a href="#" class="logo">
+                <img th:src="@{~/img/logo.svg}" width="162" height="50" alt="Eduwebogo">
+                <span class="nav-item">Guest</span>
+            </a></li>
+            <li><a href="#">
+                <i class="fas fa-menorah"></i>
+                <span class="nav-item">Dashboard</span>
+            </a></li>
+<!--            <li><a href="#">-->
+<!--                <i class="fas fa-comment"></i>-->
+<!--                <span class="nav-item">Message</span>-->
+<!--            </a></li>-->
+<!--            <li><a href="#">-->
+<!--                <i class="fas fa-database"></i>-->
+<!--                <span class="nav-item">Report</span>-->
+<!--            </a></li>-->
+<!--            <li><a href="#">-->
+<!--                <i class="fas fa-chart-bar"></i>-->
+<!--                <span class="nav-item">Attendance</span>-->
+<!--            </a></li>-->
+<!--            <li><a href="#">-->
+<!--                <i class="fas fa-cog"></i>-->
+<!--                <span class="nav-item">Setting</span>-->
+<!--            </a></li>-->
+
+            <li><a th:href="@{/logout}" class="logout">
+                <i class="fas fa-sign-out-alt"></i>
+                <span class="nav-item">Log out</span>
+            </a></li>
+        </ul>
+    </nav>
+
+
+    <section class="main">
+        <div class="main-top">
+            <h1>Attendance</h1>
+            <i class="fas fa-user-cog"></i>
+        </div>
+        <div class="users">
+            <div class="card">
+                <img th:src="@{~/img/logo.svg}" width="162" height="50" alt="Eduwebogo">
+
+                <h4>Welcome </h4>
+                <p>to your profile</p>
+
+                <button>Profile</button>
+            </div>
+            <div class="card">
+<!--                <img src="./pic/img2.jpg">-->
+                <h4>Balbina kherr</h4>
+                <p>Progammer</p>
+                <div class="per">
+                    <table>
+                        <tr>
+                            <td><span>82%</span></td>
+                            <td><span>85%</span></td>
+                        </tr>
+                        <tr>
+                            <td>Month</td>
+                            <td>Year</td>
+                        </tr>
+                    </table>
+                </div>
+                <button>Profile</button>
+            </div>
+            <div class="card">
+<!--                <img th:src="./pic/img3.jpg">-->
+                <h4>Badan John</h4>
+                <p>tester</p>
+                <div class="per">
+                    <table>
+                        <tr>
+                            <td><span>94%</span></td>
+                            <td><span>92%</span></td>
+                        </tr>
+                        <tr>
+                            <td>Month</td>
+                            <td>Year</td>
+                        </tr>
+                    </table>
+                </div>
+                <button>Profile</button>
+            </div>
+<!--            <div class="card">-->
+<!--                <img src="./pic/img4.jpg">-->
+<!--                <h4>Salina micheal</h4>-->
+<!--                <p>Ui designer</p>-->
+<!--                <div class="per">-->
+<!--                    <table>-->
+<!--                        <tr>-->
+<!--                            <td><span>85%</span></td>-->
+<!--                            <td><span>82%</span></td>-->
+<!--                        </tr>-->
+<!--                        <tr>-->
+<!--                            <td>Month</td>-->
+<!--                            <td>Year</td>-->
+<!--                        </tr>-->
+<!--                    </table>-->
+<!--                </div>-->
+<!--                <button>Profile</button>-->
+<!--            </div>-->
+        </div>
+
+        <section class="attendance">
+            <div class="attendance-list">
+                <h1>Attendance List</h1>
+                <table class="table">
+                    <thead>
+                    <tr>
+
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Email</th>
+                        <th>Address</th>
+<!--                        <th class="dep">Dep</th>-->
+<!--                        <th>Details</th>-->
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    <tr th:each = "student: ${studentList}">
+
+                        <td th:text = "${student.firstName}"></td>
+                        <td th:text = "${student.lastName}"></td>
+                        <td th:text = "${student.email}"></td>
+                        <td th:text = "${student.address}"></td>
+
+                        <!--    <tr th:each = "department: ${depList}">-->
+                        <!--      <td th:text = "${department.Name}"></td>-->
+                        <!--      <td th:text = "${department.Credit}"></td>-->
+                        <!--&lt;!&ndash;                  <td th:text = "${menu.Stock}"></td>&ndash;&gt;-->
+                        <!--      <td>-->
+
+
+
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="attendance">
+            <div class="attendance-list">
+                <h1>Department List</h1>
+                <table class="table">
+                    <thead>
+                    <tr>
+
+                        <th>Department</th>
+                        <th>Credit</th>
+
+                        <!--                        <th class="dep">Dep</th>-->
+                        <!--                        <th>Details</th>-->
+                    </tr>
+                    </thead>
+                    <tbody>
+
+<!--                    <tr th:each = "student: ${studentList}">-->
+
+<!--                        <td th:text = "${student.firstName}"></td>-->
+<!--                        <td th:text = "${student.lastName}"></td>-->
+<!--                        <td th:text = "${student.email}"></td>-->
+<!--                        <td th:text = "${student.address}"></td>-->
+
+                            <tr th:each = "department: ${depList}">
+                              <td th:text = "${department.Name}"></td>
+                              <td th:text = "${department.Credit}"></td>
+                        <!--                  <td th:text = "${menu.Stock}"></td>-->
+                              <td>
+
+
+
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </section>
+</div>
+
+</body>
+</html>

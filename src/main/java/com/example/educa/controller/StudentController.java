@@ -1,7 +1,11 @@
 package com.example.educa.controller;
 
 import com.example.educa.Entity.Student;
+import com.example.educa.services.DepartmentService;
 import com.example.educa.services.StudentService;
+import lombok.AllArgsConstructor;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,15 +13,30 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+@AllArgsConstructor
 @Controller
 public class StudentController {
 
     private StudentService studentService;
+    private DepartmentService departmentService;
 
-    public StudentController(StudentService studentService) {
-        super();
-        this.studentService = studentService;
+    @GetMapping("/dashboard")
+    public String getDashboardPage(Model model) {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        boolean hasUserRole = authentication.getAuthorities().stream()
+                .anyMatch(r -> r.getAuthority().equals("ADMIN"));
+        System.out.println(hasUserRole);
+        if(!hasUserRole){
+            return "redirect:/geust/dashboard";
+        }
+        else{
+            model.addAttribute("depList",departmentService.getAllDepartment());
+            model.addAttribute("studentList", studentService.getAllStudents());
+            return "userdashboard";
+        }
     }
+
+
 
     // handler method to handle list students and return mode and view
     @GetMapping("/students")
@@ -25,6 +44,7 @@ public class StudentController {
         model.addAttribute("students", studentService.getAllStudents());
         return "students";
     }
+
 
     @GetMapping("/students/new")
     public String createStudentForm(Model model) {

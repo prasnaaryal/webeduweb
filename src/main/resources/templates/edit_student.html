@@ -9,26 +9,46 @@
           crossorigin="anonymous">
 
     <link th:href="@{~/css/student.css}" rel="stylesheet">
-    <link th:href="@{~/css/nav.css}" rel="stylesheet">
+    <link th:href="@{~/css/newnav.css}" rel="stylesheet">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 </head>
 <body>
-<div class="menu-btn">
-    <i class="fas fa-bars"></i>
-</div>
-<div class="side-bar">
-    <div class="close-btn">
-        <i class="fas fa-times"></i>
-    </div>
-    <div class="menu">
-        <div class="item"><a href="#"><i class="fas fa-desktop"></i>Dashboard </a></div>
-        <div class="item"><a th:href="@{/students}"><i class="fas fa-user"></i>Details </a></div>
-        <div class="item"><a th:href="@{/departments}"><i class="fas fa-th"></i>Department</a></div>
-        <div class="item"><a th:href="@{/logout}"><i class="fas fa-arrow-right-from-bracket"></i>logout</a></div>
-    </div>
-</div>
+<div class="container2">
+    <nav>
+        <ul>
+            <li><a href="#" class="logo">
+                <img th:src="@{~/img/logo.svg}" width="162" height="50" alt="Eduwebogo">
+                <span class="nav-item">Admin</span>
+            </a></li>
+            <li>     <a th:href="@{/dashboard}">
+                <i class="fas fa-menorah"></i>
+                <span class="nav-item">Dashboard</span>
+            </a></li>
+            <!--      <li><a href="#">-->
+            <!--        <i class="fas fa-comment"></i>-->
+            <!--        <span class="nav-item"></span>-->
+            <!--      </a></li>-->
+            <li><a th:href="@{/students}">
+                <i class="fas fa-database"></i>
+                <span class="nav-item">Details</span>
+            </a></li>
+            <li><a th:href="@{/departments}">
+                <i class="fas fa-chart-bar"></i>
+                <span class="nav-item">Department</span>
+            </a></li>
+            <!--            <li><a href="#">-->
+            <!--                <i class="fas fa-cog"></i>-->
+            <!--                <span class="nav-item">Setting</span>-->
+            <!--            </a></li>-->
+
+            <li><a th:href="@{/logout}" class="logout">
+                <i class="fas fa-sign-out-alt"></i>
+                <span class="nav-item">Log out</span>
+            </a></li>
+        </ul>
+    </nav>
 
 <br>
 <br>
@@ -112,18 +132,11 @@
         </div>
     </div>
 </div>
-<script type="text/javascript">
-    $(document).ready(function(){
-        $('.menu-btn').click(function(){
-            $('.side-bar').addClass('active');
-            $('.menu-btn').css("visibility","hidden")
-        });
-
-        $('.close-btn').click(function(){
-            $('.side-bar').removeClass('active');
-            $('.menu-btn').css("visibility","visible")
-        });
-    });
+<script>
+    var hamburger = document.querySelector(".hamburger");
+    hamburger.addEventListener("click", function(){
+        document.querySelector("body").classList.toggle("active");
+    })
 </script>
 </body>
 </html>

@@ -25,6 +25,7 @@ public class Student {
     @Column(name = "department")
     private String department;
 
+
     public Student() {
 
     }
