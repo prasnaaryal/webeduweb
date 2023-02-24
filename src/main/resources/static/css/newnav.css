@@ -76,10 +76,7 @@ a:hover i{
     color: #34AF6D;
     transition: 0.5s;
 }
-.logout{
-    position: absolute;
-    bottom: 0;
-}
+
 
 .container2{
     display: flex;

@@ -54,21 +54,11 @@ public class UserServiceImpl implements UserService {
     public void deleteById(Integer id){
         userRepo.deleteById(id);
     }
-//    @Override
-//    public void save(User user) {
-//    }
+
     @Override
     public void login(String username, String password) {
     }
-//    @Override
-//    public User findByUsername(String username) {
-//        return null;
-//    }
-//
-//    @Override
-//    public User findByEmail(String email) {
-//        return null;
-//    }
+
 
     @Override
     public User findById(long id) {

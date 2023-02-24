@@ -397,7 +397,56 @@ body {
 }
 
 
+.main-body{
+    display: flex;
+    height:fit-content;
+    width: 100%;
+    background-color: rgb(255, 255, 255);
+}
+.right-body{
+    width:30%;
+    height: 100%;
+    text-align: start;
+    margin:5% 2%;
+}
+.right-body h1{
+    color: black;
+    font-weight: 700;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 100px;
 
+}
+.right-body h2{
+    padding-top:10px ;
+    color: black;
+    font-weight: 700;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 24px;
+
+}
+/* button{
+  margin-top:20px;
+  height:50px;
+  width:200px;
+  border-radius:25px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+       font-size: 18px;
+  color: rgb(255, 255, 255);
+  background-color:linear-gradient(#020024 0%, #671a55 35%, #8841ed 100%);
+  border:0;
+
+}
+button:hover{
+    background-color: rgb(150, 150, 151);
+} */
+.left-body{
+    width:70%;
+    height: 100%;
+}
+.left-body img{
+    width:100%;
+    height: 100%;
+}
 
 
 /*-----------------------------------*\

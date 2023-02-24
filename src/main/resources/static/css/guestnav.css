@@ -71,7 +71,7 @@ a:hover{
     background: #eee;
 }
 a:hover i{
-    color: #34AF6D;
+    color: #3478af;
     transition: 0.5s;
 }
 .logout{
@@ -153,12 +153,12 @@ a:hover i{
     transition: 0.5s;
 }
 
-/*Attendance List serction  */
-.attendance{
+/*student List box  */
+.studentt{
     margin-top: 20px;
     text-transform: capitalize;
 }
-.attendance-list{
+.student-list{
     width: 100%;
     padding: 10px;
     margin-top: 10px;
@@ -176,7 +176,7 @@ a:hover i{
 }
 table thead tr{
     color: #fff;
-    background: #34AF6D;
+    background: #101111;
     text-align: left;
     font-weight: bold;
 }
@@ -192,20 +192,78 @@ table thead tr{
 }
 .table tbody tr.active{
     font-weight: bold;
-    color: #4AD489;
+    color: #101512;
 }
 .table tbody tr:last-of-type{
-    border-bottom: 2px solid #4AD489;
+    border-bottom: 2px solid #0d1310;
 }
 .table button{
     padding: 6px 20px;
     border-radius: 10px;
     cursor: pointer;
     background: transparent;
-    border: 1px solid #4AD489;
+    border: 1px solid #0f1512;
 }
 .table button:hover{
-    background: #4AD489;
+    background: #101a15;
+    color: #fff;
+    transition: 0.5rem;
+}
+
+
+
+.departmentt{
+    margin-top: 20px;
+    text-transform: capitalize;
+}
+.departmentlistt{
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+}
+.table{
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 15px;
+    min-width: 100%;
+    overflow: hidden;
+    border-radius: 5px 5px 0 0;
+}
+table thead tr{
+    color: #fff;
+    background: #0f1c15;
+    text-align: left;
+    font-weight: bold;
+}
+.table th,
+.table td{
+    padding: 12px 15px;
+}
+.table tbody tr{
+    border-bottom: 1px solid #ddd;
+}
+.table tbody tr:nth-of-type(odd){
+    background: #f3f3f3;
+}
+.table tbody tr.active{
+    font-weight: bold;
+    color: #0b130f;
+}
+.table tbody tr:last-of-type{
+    border-bottom: 2px solid #14261d;
+}
+.table button{
+    padding: 6px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    background: transparent;
+    border: 1px solid #102319;
+}
+.table button:hover{
+    background: #08170f;
     color: #fff;
     transition: 0.5rem;
 }

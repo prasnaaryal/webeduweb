@@ -4,8 +4,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Attendance Dashboard | By Code Info</title>
   <link th:href="@{~/css/guestnav.css}" rel="stylesheet">
+  <link th:href="@{~/css/nav.css}" rel="stylesheet">
 
   <!-- Font Awesome Cdn Link -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
@@ -16,89 +16,51 @@
     <ul>
       <li><a href="#" class="logo">
         <img th:src="@{~/img/logo.svg}" width="162" height="50" alt="Eduwebogo">
-        <span class="nav-item">Admin</span>
       </a></li>
       <li>     <a th:href="@{/dashboard}">
         <i class="fas fa-menorah"></i>
         <span class="nav-item">Dashboard</span>
       </a></li>
-<!--      <li><a href="#">-->
-<!--        <i class="fas fa-comment"></i>-->
-<!--        <span class="nav-item"></span>-->
-<!--      </a></li>-->
+
                   <li><a th:href="@{/students}">
-                      <i class="fas fa-database"></i>
+                      <i class="fas fa-user"></i>
                       <span class="nav-item">Details</span>
                   </a></li>
                   <li><a th:href="@{/departments}">
                       <i class="fas fa-chart-bar"></i>
                       <span class="nav-item">Department</span>
                   </a></li>
-      <!--            <li><a href="#">-->
-      <!--                <i class="fas fa-cog"></i>-->
-      <!--                <span class="nav-item">Setting</span>-->
-      <!--            </a></li>-->
 
-      <li><a th:href="@{/logout}" class="logout">
-        <i class="fas fa-sign-out-alt"></i>
-        <span class="nav-item">Log out</span>
+      <li><a th:href="@{/noticeList}">
+        <i class="fas fa-bell"></i>
+        <span class="nav-item">Notice</span>
       </a></li>
+                  <li><a th:href="@{/logout}">
+                      <i class="fas fa-sign-out-alt"></i>
+                      <span class="nav-item">Logout</span>
+                  </a></li>
+
+
     </ul>
   </nav>
 
 
   <section class="main">
-    <div class="main-top">
-      <h1>Attendance</h1>
-      <i class="fas fa-user-cog"></i>
-    </div>
-    <div class="users">
+
+    <div class="welcome">
       <div class="card">
-        <img th:src="@{~/img/logo.svg}" width="162" height="50" alt="Eduwebogo">
 
         <h4>Welcome </h4>
         <p>to your profile</p>
 
-        <button>Profile</button>
-      </div>
-      <div class="card">
-        <!--                <img src="./pic/img2.jpg">-->
-        <h4>Students</h4>
-        <p>list</p>
 
-        <a href="#studentlist">
-        <button>Click me</button></a>
       </div>
-      <div class="card">
-        <!--                <img th:src="./pic/img3.jpg">-->
-        <h4>Department</h4>
-        <p>details</p>
-       <a href="#dep">
-        <button>Click me</button> </a>
-      </div>
-      <!--            <div class="card">-->
-      <!--                <img src="./pic/img4.jpg">-->
-      <!--                <h4>Salina micheal</h4>-->
-      <!--                <p>Ui designer</p>-->
-      <!--                <div class="per">-->
-      <!--                    <table>-->
-      <!--                        <tr>-->
-      <!--                            <td><span>85%</span></td>-->
-      <!--                            <td><span>82%</span></td>-->
-      <!--                        </tr>-->
-      <!--                        <tr>-->
-      <!--                            <td>Month</td>-->
-      <!--                            <td>Year</td>-->
-      <!--                        </tr>-->
-      <!--                    </table>-->
-      <!--                </div>-->
-      <!--                <button>Profile</button>-->
-      <!--            </div>-->
+
     </div>
 
-    <section class="attendance" id="studentlist">
-      <div class="attendance-list">
-        <h1>Attendance List</h1>
+    <section class="studentt" id="studentlist">
+      <div class="student-list">
+        <h1>Student List</h1>
         <table class="table">
           <thead>
           <tr>
@@ -107,6 +69,7 @@
             <th>Last Name</th>
             <th>Email</th>
             <th>Address</th>
+            <th>Department</th>
             <!--                        <th class="dep">Dep</th>-->
             <!--                        <th>Details</th>-->
           </tr>
@@ -114,11 +77,11 @@
           <tbody>
 
           <tr th:each = "student: ${studentList}">
-
             <td th:text = "${student.firstName}"></td>
             <td th:text = "${student.lastName}"></td>
             <td th:text = "${student.email}"></td>
             <td th:text = "${student.address}"></td>
+            <td th:text = "${student.department}"></td>
 
             <!--    <tr th:each = "department: ${depList}">-->
             <!--      <td th:text = "${department.Name}"></td>-->
@@ -134,13 +97,12 @@
       </div>
     </section>
 
-    <section class="attendance" id="dep">
-      <div class="attendance-list">
+    <section class="departmentt" id="dep">
+      <div class="departmentlistt">
         <h1>Department List</h1>
         <table class="table">
           <thead>
           <tr>
-
             <th>Department</th>
             <th>Credit</th>
 
@@ -162,6 +124,35 @@
             <td th:text = "${department.Credit}"></td>
             <!--                  <td th:text = "${menu.Stock}"></td>-->
             <td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="studentt" id="studentlist">
+      <div class="student-list">
+        <h1>Notice List</h1>
+        <table class="table">
+          <thead>
+          <tr>
+            <th>First Name</th>
+            <!--                        <th class="dep">Dep</th>-->
+            <!--                        <th>Details</th>-->
+          </tr>
+          </thead>
+          <tbody>
+
+          <tr th:each = "notice:${noticeList}">
+
+            <td th:text = "${notice.noticeName}"></td>
+
+
+            <!--    <tr th:each = "department: ${depList}">-->
+            <!--      <td th:text = "${department.Name}"></td>-->
+            <!--      <td th:text = "${department.Credit}"></td>-->
+            <!--&lt;!&ndash;                  <td th:text = "${menu.Stock}"></td>&ndash;&gt;-->
+            <!--      <td>-->
 
 
 
@@ -170,6 +161,7 @@
         </table>
       </div>
     </section>
+
   </section>
 </div>
 

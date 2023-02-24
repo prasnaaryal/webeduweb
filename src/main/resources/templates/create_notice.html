@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Student Management System</title>
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous">
+
+    <link th:href="@{~/css/student.css}" rel="stylesheet">
+    <!--    for nav bar-->
+    <link th:href="@{~/css/newnav.css}" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+</head>
+<body>
+<div class="container2">
+    <nav>
+        <ul>
+            <li><a href="#" class="logo">
+                <img th:src="@{~/img/logo.svg}" width="162" height="50" alt="Eduwebogo">
+            </a></li>
+            <li>     <a th:href="@{/dashboard}">
+                <i class="fas fa-desktop"></i>
+                <span class="nav-item">Dashboard</span>
+            </a></li>
+            <li><a th:href="@{/students}">
+                <i class="fas fa-user"></i>
+                <span class="nav-item">Details</span>
+            </a></li>
+            <li><a th:href="@{/departments}">
+                <i class="fas fa-chart-bar"></i>
+                <span class="nav-item">Department</span>
+            </a></li>
+            <li><a href="@{/noticeList}">
+                <i class="fas fa-bell"></i>
+                <span class="nav-item">Notice</span>
+            </a></li>
+
+            <li><a th:href="@{/logout}" class="logout">
+                <i class="fas fa-sign-out-alt"></i>
+                <span class="nav-item">Log out</span>
+            </a></li>
+        </ul>
+    </nav>
+    <br>
+    <br>
+    <div class = "container" style="padding-top: 80px">
+        <div class = "row">
+            <!--        box header -->
+            <div class ="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
+                <h2 class = "text-center" style="padding-top: 50px; font-size: 2.1rem;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+    color: #151111;" >Add Notice
+                </h2>
+                <h6 class="text-center"
+                    style="color: #151111;
+    font-weight: 400;
+    font-size: 0.75rem;
+    font-family: 'Poppins', sans-serif;
+    ">  Notice
+                    / Add Notice</h6>
+                <div class = "card-body">
+                    <form th:action="@{/notices}" th:object = "${notice}" method="POST">
+                        <div class ="form-group" style="font-family: 'Poppins', sans-serif">
+                            <label> Notice </label>
+                            <input
+                                    type = "text"
+                                    name = "Name"
+                                    th:field = "*{noticeName}"
+                                    autocomplete="off"
+                                    required
+                                    class = "form-control"
+                                    placeholder="Enter Notice"
+                            />
+                        </div>
+                        <div class = "box-footer">
+                            <button type="submit"  class = "btn btn-primary">
+                                Submit
+                            </button>
+                        </div>
+                    </form>
+
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <script>
+        var hamburger = document.querySelector(".hamburger");
+        hamburger.addEventListener("click", function(){
+            document.querySelector("body").classList.toggle("active");
+        })
+    </script>
+</div>
+</body>
+</html>

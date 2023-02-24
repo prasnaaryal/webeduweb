@@ -155,28 +155,13 @@
         <ul>
             <li><a href="#" class="logo">
                 <img th:src="@{~/img/logo.svg}" width="162" height="50" alt="Eduwebogo">
-                <span class="nav-item">Guest</span>
             </a></li>
-            <li><a href="#">
-                <i class="fas fa-menorah"></i>
+            <li><a href="@{/notices}">
+                <i class="fas fa-desktop"></i>
                 <span class="nav-item">Dashboard</span>
             </a></li>
-<!--            <li><a href="#">-->
-<!--                <i class="fas fa-comment"></i>-->
-<!--                <span class="nav-item">Message</span>-->
-<!--            </a></li>-->
-<!--            <li><a href="#">-->
-<!--                <i class="fas fa-database"></i>-->
-<!--                <span class="nav-item">Report</span>-->
-<!--            </a></li>-->
-<!--            <li><a href="#">-->
-<!--                <i class="fas fa-chart-bar"></i>-->
-<!--                <span class="nav-item">Attendance</span>-->
-<!--            </a></li>-->
-<!--            <li><a href="#">-->
-<!--                <i class="fas fa-cog"></i>-->
-<!--                <span class="nav-item">Setting</span>-->
-<!--            </a></li>-->
+
+
 
             <li><a th:href="@{/logout}" class="logout">
                 <i class="fas fa-sign-out-alt"></i>
@@ -187,78 +172,24 @@
 
 
     <section class="main">
-        <div class="main-top">
-            <h1>Attendance</h1>
-            <i class="fas fa-user-cog"></i>
-        </div>
-        <div class="users">
+
+<!--        welcome header ko-->
+        <div class="welcome">
             <div class="card">
-                <img th:src="@{~/img/logo.svg}" width="162" height="50" alt="Eduwebogo">
 
                 <h4>Welcome </h4>
                 <p>to your profile</p>
 
-                <button>Profile</button>
+
             </div>
-            <div class="card">
-<!--                <img src="./pic/img2.jpg">-->
-                <h4>Balbina kherr</h4>
-                <p>Progammer</p>
-                <div class="per">
-                    <table>
-                        <tr>
-                            <td><span>82%</span></td>
-                            <td><span>85%</span></td>
-                        </tr>
-                        <tr>
-                            <td>Month</td>
-                            <td>Year</td>
-                        </tr>
-                    </table>
-                </div>
-                <button>Profile</button>
-            </div>
-            <div class="card">
-<!--                <img th:src="./pic/img3.jpg">-->
-                <h4>Badan John</h4>
-                <p>tester</p>
-                <div class="per">
-                    <table>
-                        <tr>
-                            <td><span>94%</span></td>
-                            <td><span>92%</span></td>
-                        </tr>
-                        <tr>
-                            <td>Month</td>
-                            <td>Year</td>
-                        </tr>
-                    </table>
-                </div>
-                <button>Profile</button>
-            </div>
-<!--            <div class="card">-->
-<!--                <img src="./pic/img4.jpg">-->
-<!--                <h4>Salina micheal</h4>-->
-<!--                <p>Ui designer</p>-->
-<!--                <div class="per">-->
-<!--                    <table>-->
-<!--                        <tr>-->
-<!--                            <td><span>85%</span></td>-->
-<!--                            <td><span>82%</span></td>-->
-<!--                        </tr>-->
-<!--                        <tr>-->
-<!--                            <td>Month</td>-->
-<!--                            <td>Year</td>-->
-<!--                        </tr>-->
-<!--                    </table>-->
-<!--                </div>-->
-<!--                <button>Profile</button>-->
-<!--            </div>-->
+
         </div>
 
-        <section class="attendance">
-            <div class="attendance-list">
-                <h1>Attendance List</h1>
+<!--        studentlist display box-->
+
+        <section class="studentt" id="studentlist">
+            <div class="student-list">
+                <h1>Student List</h1>
                 <table class="table">
                     <thead>
                     <tr>
@@ -267,6 +198,7 @@
                         <th>Last Name</th>
                         <th>Email</th>
                         <th>Address</th>
+                        <th>Department</th>
 <!--                        <th class="dep">Dep</th>-->
 <!--                        <th>Details</th>-->
                     </tr>
@@ -279,6 +211,7 @@
                         <td th:text = "${student.lastName}"></td>
                         <td th:text = "${student.email}"></td>
                         <td th:text = "${student.address}"></td>
+                        <td th:text = "${student.department}"></td>
 
                         <!--    <tr th:each = "department: ${depList}">-->
                         <!--      <td th:text = "${department.Name}"></td>-->
@@ -294,8 +227,8 @@
             </div>
         </section>
 
-        <section class="attendance">
-            <div class="attendance-list">
+        <section class="departmentt" id="dep">
+            <div class="departmentlistt">
                 <h1>Department List</h1>
                 <table class="table">
                     <thead>

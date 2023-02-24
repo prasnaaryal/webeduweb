@@ -1,6 +1,14 @@
 package com.example.educa.Entity;
 
 import jakarta.persistence.*;
+import lombok.*;
+
+import java.util.ArrayList;
+import java.util.List;
+@Builder
+@AllArgsConstructor
+@Getter
+@Setter
 
 @Entity
 @Table(name = "students")
@@ -74,6 +82,9 @@ public class Student {
     }
     public void setDepartment(String department) {
         this.department = department;}
+
+//    @OneToMany(mappedBy = "student", orphanRemoval = true, cascade = CascadeType.PERSIST)
+//    List<Department> departments = new ArrayList<Department>();
 
 
 }

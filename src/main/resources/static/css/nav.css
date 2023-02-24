@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+/*@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');*/
 
 *{
     list-style: none;
@@ -10,11 +10,11 @@
 }
 
 body{
-    background: #a8a8a8;
+    background: #fff8f8;
 }
 
 .wrapper .sidebar{
-    background: rgb(183, 179, 179);
+    background: rgb(234, 229, 229);
     position: fixed;
     top: 0;
     left: 0;
@@ -38,12 +38,12 @@ body{
 }
 
 .wrapper .sidebar .profile h3{
-    color: #ffffff;
+    color: #0e0e0e;
     margin: 10px 0 5px;
 }
 
 .wrapper .sidebar .profile p{
-    color: rgb(206, 240, 253);
+    color: rgb(31, 38, 40);
     font-size: 14px;
 }
 
@@ -51,13 +51,13 @@ body{
     display: block;
     padding: 13px 30px;
     border-bottom: 1px solid #f8ebcb;
-    color: rgb(241, 237, 237);
+    color: rgb(252, 252, 252);
     font-size: 16px;
     position: relative;
 }
 
 .wrapper .sidebar ul li a .icon{
-    color: #dee4ec;
+    color: #ffffff;
     width: 30px;
     display: inline-block;
 }
@@ -89,7 +89,7 @@ body{
 }
 
 .wrapper .section .top_navbar{
-    background: rgb(183, 179, 179);
+    background: rgb(28, 22, 22);
     height: 50px;
     display: flex;
     align-items: center;

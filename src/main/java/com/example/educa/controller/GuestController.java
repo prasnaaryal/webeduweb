@@ -17,10 +17,6 @@ public class GuestController {
     private StudentService studentService;
     private DepartmentService departmentService;
 
-
-
-
-
         @GetMapping("/dashboard")
         public String getPage(Model model){
             model.addAttribute("depList",departmentService.getAllDepartment());

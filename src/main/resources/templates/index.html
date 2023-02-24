@@ -618,8 +618,8 @@
 
     - primary meta tag
   -->
-<title>EduWeb -Student Management System</title>
-<meta name="title" content="EduWeb -Student Management System">
+<title>Ed -Student Management System</title>
+<meta name="title" content="Educa -Student Management System">
 
 <!--
   - favicon
@@ -643,14 +643,7 @@
         href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;500;600;700;800&family=Poppins:wght@400;500&display=swap"
         rel="stylesheet">
 
-<!--
-  - preload images
--->
-<!--  <link rel="preload" as="image" href="./assets/images/hero-bg.svg">-->
-<!--  <link rel="preload" as="image" href="./assets/images/hero-banner-1.jpg">-->
-<!--  <link rel="preload" as="image" href="./assets/images/hero-banner-2.jpg">-->
-<!--  <link rel="preload" as="image" href="./assets/images/hero-shape-1.svg">-->
-<!--  <link rel="preload" as="image" href="./assets/images/hero-shape-2.png">-->
+
 
 </head>
 
@@ -666,7 +659,6 @@
         <a href="#" class="logo">
             <img th:src="@{~/img/logo.svg}" width="162" height="50" alt="Eduwebogo">
 
-            <!--        <img src="./assets/images/logo.svg" width="162" height="50" alt="EduWeb logo">-->
         </a>
 
         <nav class="navbar" data-navbar>
@@ -675,7 +667,6 @@
                 <a href="#" class="logo">
                     <img th:src="@{~/img/logo.svg}" width="162" height="50" alt="EduWeb logo">
 
-                    <!--            <img src="./assets/images/logo.svg" width="162" height="50" alt="EduWeb logo">-->
                 </a>
 
                 <button class="nav-close-btn" aria-label="close menu" data-nav-toggler>
@@ -704,12 +695,26 @@
 
         </nav>
 
+
+        <div class="overlay" data-nav-toggler data-overlay></div>
+
+    </div>
+</header>
+<div class ="main-body">
+    <div class="left-body">
+        <img th:src="@{~/img/5836.jpg}">
+
+
+    </div>
+    <div class=""right-body>
+        <h1>Student Management System</h1>
+        <h2>Hello Student</h2>
         <div class="header-actions">
 
 
 
             <a th:href="@{/login}" class="btn has-before">
-                <span class="span">Try for free</span>
+                <span class="span">login</span>
 
                 <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
             </a>
@@ -720,365 +725,11 @@
 
         </div>
 
-        <div class="overlay" data-nav-toggler data-overlay></div>
-
     </div>
-</header>
 
+</div>
 
 
-
-
-<main>
-    <article>
-
-        <!--
-          - #HERO
-        -->
-
-        <section class="section hero has-bg-image" id="home" aria-label="home"
-                 style="background-image: url('./img/hero-bg.svg')">
-            <div class="container">
-
-                <div class="hero-content">
-
-                    <h1 class="h1 section-title">
-                        The Best Program to <span class="span">Enroll</span> for Storage
-                    </h1>
-
-                    <p class="hero-text">
-                        Record keep,update and edit your courses and student's data.
-
-                    </p>
-
-                    <a href="#" class="btn has-before">
-                        <span class="span">Use now</span>
-
-                        <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
-                    </a>
-
-                </div>
-
-                <figure class="hero-banner">
-
-                    <div class="img-holder one" style="--width: 270; --height: 300;">
-                        <img th:src="@{~/img/hero-banner-1.jpg}" width="270" height="300" alt="hero banner" class="img-cover">
-                    </div>
-
-                    <div class="img-holder two" style="--width: 240; --height: 370;">
-                        <img th:src="@{~/img/hero-banner-2.jpg}" width="240" height="370" alt="hero banner" class="img-cover">
-                    </div>
-
-<!--                    <img th:src="@{~/img/hero-shape-1.svg}" width="380" height="190" alt="" class="shape hero-shape-1">-->
-
-                    <img th:src="@{~/img/hero-shape-2.png}" width="622" height="551" alt="" class="shape hero-shape-2">
-
-                </figure>
-
-            </div>
-        </section>
-
-
-
-
-
-        <!--
-          - #CATEGORY
-        -->
-
-        <section class="section category" aria-label="category">
-            <div class="container">
-
-                <p class="section-subtitle">Categories</p>
-
-                <h2 class="h2 section-title">
-                    Online <span class="span">Classes</span> For For Easier Management..
-                </h2>
-
-                <p class="section-text">
-                    Keep track of the courses you provide.
-
-                </p>
-
-                <ul class="grid-list">
-
-                    <li>
-                        <div class="category-card" style="--color: 170, 75%, 41%">
-
-                            <div class="card-icon">
-                                <img th:src="@{~/img/category-1.svg}" width="40" height="40" loading="lazy"
-                                     alt="Online Degree Programs" class="img">
-                            </div>
-
-                            <h3 class="h3">
-                                <a href="#" class="card-title">BSc Computing</a>
-                            </h3>
-
-                            <p class="card-text">
-                                Our computing degree is designed to produce graduates with a high level of knowledge across a variety of computing technologies.
-                            </p>
-
-                            <!--                <span class="card-badge">7 Courses</span>-->
-
-                        </div>
-                    </li>
-
-                    <li>
-                        <div class="category-card" style="--color: 351, 83%, 61%">
-
-                            <div class="card-icon">
-                                <img th:src="@{~/img/category-2.svg}" width="40" height="40" loading="lazy"
-                                     alt="Non-Degree Programs" class="img">
-                            </div>
-
-                            <h3 class="h3">
-                                <a href="#" class="card-title">Bsc (Hons) </a>
-                            </h3>
-
-                            <p class="card-text">
-                                On this course, students will have the opportunity to learn to identify and analyse the threats posed to modern information structures and develop the knowledge and skills to be able to advise a company on how to set up secure systems.
-
-                            </p>
-
-                            <!--                <span class="card-badge">4 Courses</span>-->
-
-                        </div>
-                    </li>
-
-                    <li>
-                        <div class="category-card" style="--color: 229, 75%, 58%">
-
-                            <div class="card-icon">
-                                <img th:src="@{~/img/category-3.svg}" width="40" height="40" loading="lazy"
-                                     alt="Off-Campus Programs" class="img">
-                            </div>
-
-                            <h3 class="h3">
-                                <a href="#" class="card-title">MSc Data Science</a>
-                            </h3>
-
-                            <p class="card-text">
-                                The overall aim of the MSc in Data Science and Computational  Intelligence is to Deliver advanced theoretical and practical subjects  across a range of specialist areas in data science and computational intelligence.
-
-                            </p>
-
-                            <!--                <span class="card-badge">8 Courses</span>-->
-
-                        </div>
-                    </li>
-
-                    <li>
-                        <div class="category-card" style="--color: 42, 94%, 55%">
-
-                            <div class="card-icon">
-                                <img th:src="@{~/img/category-4.svg}" width="40" height="40" loading="lazy"
-                                     alt="Hybrid Distance Programs" class="img">
-                            </div>
-
-                            <h3 class="h3">
-                                <a href="#" class="card-title">MSc Data Science and Computational Intelligence</a>
-                            </h3>
-
-                            <p class="card-text">
-                                The aim of  Computational  Intelligence is to Deliver advanced theoretical and practical subjects  across a range of specialist areas in data science and computational intelligence.
-
-                            </p>
-
-                            <!--                <span class="card-badge">8 Courses</span>-->
-
-                        </div>
-                    </li>
-
-                </ul>
-
-            </div>
-        </section>
-
-
-
-
-
-        <!--
-          - #ABOUT
-        -->
-
-        <section class="section about" id="about" aria-label="about">
-            <div class="container">
-
-                <figure class="about-banner">
-
-                    <div class="img-holder" style="--width: 520; --height: 370;">
-                        <img th:src="@{~/img/about-banner.jpg}" width="520" height="370" loading="lazy" alt="about banner"
-                             class="img-cover">
-                    </div>
-
-<!--                    <img th:src="@{~/img/about-shape-1.svg}" width="360" height="420" loading="lazy" alt=""-->
-<!--                         class="shape about-shape-1">-->
-
-                    <img th:src="@{~/img/about-shape-2.svg}" width="371" height="220" loading="lazy" alt=""
-                         class="shape about-shape-2">
-
-                    <img th:src="@{~/img/about-shape-3.png}" width="722" height="528" loading="lazy" alt=""
-                         class="shape about-shape-3">
-
-                </figure>
-
-                <div class="about-content">
-
-                    <p class="section-subtitle">About Us</p>
-
-                    <h2 class="h2 section-title">
-                        Over 10 Years in <span class="span">Data Storage</span>  for easier Management
-                    </h2>
-
-                    <p class="section-text">
-                        Use our site to store, manage and upkeep your students, courses data with simple and minimalistic student management system.
-
-                    </p>
-
-                    <ul class="about-list">
-
-                        <li class="about-item">
-                            <ion-icon name="checkmark-done-outline" aria-hidden="true"></ion-icon>
-
-                            <span class="span">Minimalistic Navigation</span>
-                        </li>
-
-                        <li class="about-item">
-                            <ion-icon name="checkmark-done-outline" aria-hidden="true"></ion-icon>
-
-                            <span class="span">No data loss</span>
-                        </li>
-
-                        <li class="about-item">
-                            <ion-icon name="checkmark-done-outline" aria-hidden="true"></ion-icon>
-
-                            <span class="span">Lifetime Access</span>
-                        </li>
-
-                    </ul>
-
-                    <img th:src="@{~/img/about-shape-4.svg}" width="100" height="100" loading="lazy" alt=""
-                         class="shape about-shape-4">
-
-                </div>
-
-            </div>
-        </section>
-
-
-
-
-
-
-
-        </ul>
-
-<!--        <a href="#" class="btn has-before">-->
-<!--            <span class="span">Browse more courses</span>-->
-
-<!--            <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>-->
-<!--        </a>-->
-
-        </div>
-        </section>
-
-
-
-
-
-        <!--
-          - #VIDEO
-        -->
-
-        <section class="video has-bg-image" aria-label="video"
-                 style="background-image: url('./assets/images/video-bg.png')">
-            <div class="container">
-
-                <div class="video-card">
-
-                    <div class="video-banner img-holder has-after" style="--width: ; --height: ;">
-                        <img th:src="@{~/img/video-banner.jpg}" width="970" height="550" loading="lazy" alt="video banner"
-                             class="img-cover">
-
-                        <button class="play-btn" aria-label="play video">
-                            <ion-icon name="play" aria-hidden="true"></ion-icon>
-                        </button>
-                    </div>
-
-                    <img th:src="@{~/img/video-shape-1.png}" width="1089" height="605" loading="lazy" alt=""
-                         class="shape video-shape-1">
-
-                    <img th:src="@{~/img/video-shape-2.png}" width="158" height="174" loading="lazy" alt=""
-                         class="shape video-shape-2">
-
-                </div>
-
-            </div>
-        </section>
-
-
-
-
-
-        <!--
-          - #STATE
-        -->
-
-        <section class="section stats" aria-label="stats">
-            <div class="container">
-
-                <ul class="grid-list">
-
-                    <li>
-                        <div class="stats-card" style="--color: 170, 75%, 41%">
-                            <h3 class="card-title">29.3k</h3>
-
-                            <p class="card-text">Student Enrolled</p>
-                        </div>
-                    </li>
-
-                    <li>
-                        <div class="stats-card" style="--color: 351, 83%, 61%">
-                            <h3 class="card-title">32.4K</h3>
-
-                            <p class="card-text">Recommended</p>
-                        </div>
-                    </li>
-
-                    <li>
-                        <div class="stats-card" style="--color: 260, 100%, 67%">
-                            <h3 class="card-title">100%</h3>
-
-                            <p class="card-text">Satisfaction Rate</p>
-                        </div>
-                    </li>
-
-                    <li>
-                        <div class="stats-card" style="--color: 42, 94%, 55%">
-                            <h3 class="card-title">354+</h3>
-
-                            <p class="card-text">Used Recently</p>
-                        </div>
-                    </li>
-
-                </ul>
-
-            </div>
-        </section>
-
-
-
-
-
-
-
-
-        </div>
-        </section>
-
-    </article>
-</main>
 
 
 
@@ -1223,15 +874,7 @@
         </div>
     </div>
 
-    <div class="footer-bottom">
-        <div class="container">
 
-            <p class="copyright">
-                Copyright 2022 All Rights Reserved by <a href="#" class="copyright-link">codewithsadee</a>
-            </p>
-
-        </div>
-    </div>
 
 </footer>
 

@@ -1,6 +1,7 @@
 package com.example.educa.services.impl;
 
 import com.example.educa.Entity.Student;
+import com.example.educa.Entity.User;
 import com.example.educa.repo.StudentRepository;
 import com.example.educa.services.StudentService;
 import org.springframework.stereotype.Service;
@@ -31,6 +32,11 @@ public class StudentServiceImpl implements StudentService {
     @Override
     public Student getStudentById(Long id) {
         return studentRepository.findById(id).get();
+    }
+
+    @Override
+    public Student findByEmail(String email) {
+        return studentRepository.findByEmail(email).orElseThrow(()->new RuntimeException("Not Found"));
     }
 
     @Override

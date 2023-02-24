@@ -1,9 +1,16 @@
 package com.example.educa.Entity;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
 
 
-
+@Builder
+@AllArgsConstructor
+@Getter
+@Setter
 @Entity
 @Table(name = "department")
 public class Department {
@@ -15,13 +22,13 @@ public class Department {
     @Column(name = "name", nullable = false)
     private String Name;
 
-    
+
 
     @Column(name = "credit", nullable = false)
     private String Credit;
 
 
-   
+
     public Department() {
 
     }

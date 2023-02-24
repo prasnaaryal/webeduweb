@@ -4,6 +4,7 @@ import com.example.educa.Entity.User;
 import com.example.educa.pojo.UserPojo;
 
 import com.example.educa.services.DepartmentService;
+import com.example.educa.services.NoticeService;
 import com.example.educa.services.StudentService;
 import com.example.educa.services.UserService;
 import jakarta.validation.Valid;
@@ -33,6 +34,7 @@ public class UserController {
     private final UserService userService;
     private final StudentService studentService;
     private final DepartmentService departmentService;
+    private final NoticeService noticeService;
 //    public static String UPLOAD_DIRECTORY = System.getProperty("user.dir") + "/canteen_mgmt";
 
     @GetMapping
@@ -67,7 +69,7 @@ public class UserController {
         redirectAttributes.addFlashAttribute("successMsg", "User saved successfully");
 
 
-        return "redirect:/user/list";
+        return "redirect:/login";
     }
 
     @GetMapping("/edit/{id}")
@@ -77,12 +79,22 @@ public class UserController {
         return "register";
     }
 
+    @GetMapping("/user/view/{id}")
+    public String viewProfile(@PathVariable("id") Integer id, Model model) {
+        User user = userService.fetchById(id);
+        model.addAttribute("user", new UserPojo(user));
+        return "userprofile";
+    }
+
     @GetMapping("/dashboard")
     public String listStudents(Model model) {
         model.addAttribute("depList",departmentService.getAllDepartment());
         model.addAttribute("studentList", studentService.getAllStudents());
+        model.addAttribute("noticeList", noticeService.getAllNotices());
         return "userdashboard";
     }
+
+
 
 
 

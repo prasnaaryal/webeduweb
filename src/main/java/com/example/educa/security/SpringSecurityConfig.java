@@ -35,7 +35,7 @@ public class SpringSecurityConfig {
     protected SecurityFilterChain filterChain(HttpSecurity httpSecurity) throws Exception {
         httpSecurity.csrf().disable()
                 .authorizeHttpRequests()
-                .requestMatchers("/index","/user/**")
+                .requestMatchers("/index","/user/**","/notices")
                 .permitAll()
                 .requestMatchers("/css/**","/img/**","/geust/**").permitAll()
                 .anyRequest()
