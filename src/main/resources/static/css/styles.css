@@ -214,10 +214,11 @@ body {
     display: flex;
     align-items: center;
     gap: 7px;
-    max-width: max-content;
+    width: max-content;
     padding: 10px 20px;
-    border-radius: var(--radius-5);
+    border-radius: 10%;
     overflow: hidden;
+
 }
 
 .has-before,
@@ -399,29 +400,30 @@ body {
 
 .main-body{
     display: flex;
-    height:fit-content;
+    height: max-content;
     width: 100%;
     background-color: rgb(255, 255, 255);
 }
 .right-body{
     width:30%;
     height: 100%;
-    text-align: start;
+    text-align: ce;
     margin:5% 2%;
 }
 .right-body h1{
     color: black;
     font-weight: 700;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    font-size: 100px;
+    font-size: 40px;
 
 }
 .right-body h2{
     padding-top:10px ;
     color: black;
-    font-weight: 700;
+    font-weight: 400;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: 24px;
+    padding-bottom:30px;
 
 }
 /* button{
@@ -1184,7 +1186,44 @@ button:hover{
     .newsletter-form .btn { padding-block: 10px; }
 
 }
+.navagation{
+    width:100%;
+    height: 80px;
+    background-color: rgb(0, 0, 0);
+    display: flex;
+    justify-content: space-between;
+}
+.navagation img{
+    height: 100%;
+    padding:5%;
+}
 
+.left-nav ul{
+    display: flex;
+    text-decoration: none;
+    float: right;
+    margin-right: 20%;
+    align-items: center;
+
+
+}
+.left-nav ul a{
+    padding-left: 2%;
+    text-decoration: none;
+    font-size: 24px;
+    display: inline-block;
+    line-height: 80px;
+    margin: 0 20px;
+    color: #ffffff;
+    font-weight: 500;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+
+}
+.left-nav ul a:hover{
+    color: rgb(163, 161, 161);
+
+}
 
 
 
